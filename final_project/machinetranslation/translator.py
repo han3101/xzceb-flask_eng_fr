@@ -16,16 +16,46 @@ language_translator.set_service_url(url)
 
 def english_to_french(english_text):
     """translates english to french"""
-    french_text = language_translator.translate(
-        text=english_text,
-        model_id='en-fr'
-    ).get_result()
-    return french_text
+    try:
+        french_text = language_translator.translate(
+            text=english_text,
+            model_id='en-fr'
+        ).get_result()
+    except:
+        english_text == ""
+
+    return french_text['translations'][0]['translation']
 
 def french_to_english(french_text):
     """translates french to english"""
-    english_text = language_translator.translate(
-        text=french_text,
-        model_id='fr-en'
-    ).get_result()
-    return english_text
+    try:
+        english_text = language_translator.translate(
+            text=french_text,
+            model_id='fr-en'
+        ).get_result()
+    except:
+        french_text == ""
+    return english_text['translations'][0]['translation']
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# translation = language_translator.translate(text="hello can i have some money please", model_id='en-he').get_result()
+
+# print(f"Translating: Hello can I have some money please: {translation['translations'][0]['translation']}")
