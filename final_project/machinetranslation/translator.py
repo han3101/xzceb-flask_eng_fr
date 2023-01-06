@@ -37,6 +37,36 @@ def french_to_english(french_text):
         french_text == ""
     return english_text['translations'][0]['translation']
 
+def eng_to_hebrew(text):
+    try:
+        english_text = language_translator.translate(
+            text=text,
+            model_id='en-he'
+        ).get_result()
+    except:
+        text == ""
+    return english_text['translations'][0]['translation']
+
+def eng_to_spanish(text):
+    try:
+        english_text = language_translator.translate(
+            text=text,
+            model_id='en-es'
+        ).get_result()
+    except:
+        text == ""
+    return english_text['translations'][0]['translation']
+
+def eng_to_chinese(text):
+    try:
+        english_text = language_translator.translate(
+            text=text,
+            model_id='en-zh'
+        ).get_result()
+    except:
+        text == ""
+    return english_text['translations'][0]['translation']
+
 
 
 
